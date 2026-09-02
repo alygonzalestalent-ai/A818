@@ -1,0 +1,38 @@
+# Article Outline: [Title]
+
+## Hook
+- [Opening line/story/statistic]
+- [Why reader should care]
+
+## Introduction
+- Context and background
+- Problem statement
+- What this article covers
+
+## Main Sections
+
+### Section 1: [Title]
+- Key point A
+- Key point B
+- Example/evidence
+- [Research needed: specific topic]
+
+### Section 2: [Title]
+- Key point C
+- Key point D
+- Data/citation needed
+
+### Section 3: [Title]
+- Key point E
+- Counter-arguments
+- Resolution
+
+## Conclusion
+- Summary of main points
+- Call to action
+- Final thought
+
+## Research To-Do
+- [ ] Find data on [topic]
+- [ ] Get examples of [concept]
+- [ ] Source citation for [claim]
