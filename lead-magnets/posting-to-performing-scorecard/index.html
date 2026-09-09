@@ -1,0 +1,763 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posting to Performing Scorecard</title>
+<meta name="description" content="A 20-question diagnostic for beauty, wellness, and fashion brands. Score your content across five pillars and find the one that is costing you revenue.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=Caveat:wght@500&display=swap">
+<style>
+:root{
+  --ground:#FCFBF9;
+  --surface:#F2EEE6;
+  --raised:#EBE7DE;
+  --ink:#262421;
+  --ink-soft:#6B615A;
+  --ink-faint:#948A80;
+  --line:#DFD8CB;
+  --line-strong:#C6BCAC;
+  --accent:#471E22;
+  --accent-2:#692022;
+  --on-accent:#FCFBF9;
+  --tan:#B7A28E;
+  --pink:#F6D7DC;
+  --pink-wash:#FBEEF0;
+  --focus:#692022;
+
+  --f-sans:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --f-script:"Caveat","Segoe Script",cursive;
+
+  --step--1:clamp(.78rem,.76rem + .1vw,.83rem);
+  --step-0:clamp(1rem,.97rem + .15vw,1.075rem);
+  --step-1:clamp(1.2rem,1.13rem + .35vw,1.4rem);
+  --step-2:clamp(1.5rem,1.36rem + .7vw,2rem);
+  --step-3:clamp(2rem,1.7rem + 1.5vw,3.1rem);
+
+  --wrap:44rem;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#191715;
+    --surface:#211E1C;
+    --raised:#2A2622;
+    --ink:#EBE7DE;
+    --ink-soft:#A99E92;
+    --ink-faint:#877C71;
+    --line:#38322D;
+    --line-strong:#4C443D;
+    --accent:#F6D7DC;
+    --accent-2:#E8BEC5;
+    --on-accent:#262421;
+    --pink-wash:#332A2B;
+    --focus:#F6D7DC;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#191715;
+  --surface:#211E1C;
+  --raised:#2A2622;
+  --ink:#EBE7DE;
+  --ink-soft:#A99E92;
+  --ink-faint:#877C71;
+  --line:#38322D;
+  --line-strong:#4C443D;
+  --accent:#F6D7DC;
+  --accent-2:#E8BEC5;
+  --on-accent:#262421;
+  --pink-wash:#332A2B;
+  --focus:#F6D7DC;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--f-sans);
+  font-size:var(--step-0);
+  font-weight:400;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{text-wrap:balance;margin:0;font-weight:600;line-height:1.12;letter-spacing:-.02em}
+p{margin:0}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:2px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.shell{max-width:var(--wrap);margin:0 auto;padding:0 1.4rem 5rem}
+
+/* ---- masthead ---- */
+.masthead{
+  display:flex;align-items:baseline;justify-content:space-between;gap:1rem;
+  padding:1.6rem 0 1.3rem;border-bottom:1px solid var(--line);
+}
+.wordmark{
+  font-size:var(--step--1);font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+}
+.masthead .kind{
+  font-size:var(--step--1);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);
+}
+
+/* ---- shared bits ---- */
+.eyebrow{
+  font-size:var(--step--1);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent-2);font-weight:600;
+}
+.lede{color:var(--ink-soft);max-width:34rem}
+.stack{display:flex;flex-direction:column}
+.rule{height:1px;background:var(--line);border:0;margin:0}
+
+.btn{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:var(--accent);color:var(--on-accent);
+  border:1px solid var(--accent);
+  padding:.85rem 1.5rem;cursor:pointer;
+  font-size:var(--step--1);font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  transition:background .18s ease,color .18s ease,transform .18s ease;
+  text-decoration:none;
+}
+.btn:hover{background:var(--accent-2);border-color:var(--accent-2)}
+.btn:disabled{background:transparent;color:var(--ink-faint);border-color:var(--line-strong);cursor:not-allowed}
+.btn-quiet{
+  background:transparent;color:var(--ink);border:1px solid var(--line-strong);
+}
+.btn-quiet:hover{background:var(--raised);border-color:var(--ink-soft);color:var(--ink)}
+.btn-text{
+  background:none;border:0;padding:.4rem 0;cursor:pointer;
+  font-size:var(--step--1);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);
+}
+.btn-text:hover{color:var(--ink)}
+
+/* ---- intro ---- */
+#intro{padding:3.2rem 0 0;gap:1.5rem}
+#intro h1{font-size:var(--step-3);max-width:16ch}
+#intro h1 em{font-style:normal;color:var(--accent-2)}
+.intro-meta{
+  display:flex;flex-wrap:wrap;gap:.55rem 1.6rem;
+  font-size:var(--step--1);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);
+  padding-top:.4rem;
+}
+.pillar-list{
+  list-style:none;margin:.6rem 0 0;padding:0;
+  border-top:1px solid var(--line);
+}
+.pillar-list li{
+  display:grid;grid-template-columns:1.9rem 1fr;gap:1rem;align-items:baseline;
+  padding:.85rem 0;border-bottom:1px solid var(--line);
+}
+.pillar-list .idx{
+  font-size:var(--step--1);color:var(--ink-faint);font-variant-numeric:tabular-nums;letter-spacing:.06em;
+}
+.pillar-list b{font-weight:600}
+.pillar-list span{color:var(--ink-soft);display:block;font-size:var(--step--1);letter-spacing:0;text-transform:none}
+.intro-actions{display:flex;flex-wrap:wrap;align-items:center;gap:1.2rem;padding-top:.6rem}
+.note{font-size:var(--step--1);color:var(--ink-faint);max-width:30rem}
+
+/* ---- progress rail ---- */
+#results,#quiz{padding-top:1.6rem}
+.rail{display:grid;grid-template-columns:repeat(5,1fr);gap:.5rem;padding:.6rem 0 1.8rem}
+.rail div{display:flex;flex-direction:column;gap:.5rem}
+.rail .tick{height:2px;background:var(--line-strong);transition:background .3s ease}
+.rail .tick.on{background:var(--accent)}
+.rail .lab{
+  font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);
+  transition:color .3s ease;
+}
+.rail .lab.on{color:var(--ink)}
+
+/* ---- quiz ---- */
+.pillar-head{display:flex;flex-direction:column;gap:.5rem;padding-bottom:.5rem}
+.pillar-head h2{font-size:var(--step-2)}
+.qs{display:flex;flex-direction:column;gap:2.4rem;padding:2rem 0 0}
+.q{display:flex;flex-direction:column;gap:.9rem}
+.q > p{font-weight:500;max-width:40rem}
+.opts{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
+.opt{
+  display:grid;grid-template-columns:auto 1fr;gap:.85rem;align-items:start;
+  padding:.8rem .9rem .8rem .2rem;border-bottom:1px solid var(--line);
+  cursor:pointer;transition:background .15s ease,padding-left .15s ease;
+  color:var(--ink-soft);
+}
+.opt:hover{background:var(--surface);padding-left:.55rem}
+.opt input{position:absolute;opacity:0;width:0;height:0}
+.dot{
+  width:.82rem;height:.82rem;border:1px solid var(--line-strong);border-radius:50%;
+  margin-top:.42rem;flex:none;transition:border-color .15s ease,box-shadow .15s ease,background .15s ease;
+}
+.opt:has(input:checked){background:var(--pink-wash);color:var(--ink);padding-left:.55rem}
+.opt:has(input:checked) .dot{border-color:var(--accent);background:var(--accent);box-shadow:0 0 0 3px var(--pink-wash) inset}
+.opt:has(input:focus-visible){outline:2px solid var(--focus);outline-offset:-2px}
+.quiz-nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-top:2.4rem;border-top:1px solid var(--line);margin-top:2.4rem}
+.count{font-size:var(--step--1);color:var(--ink-faint);font-variant-numeric:tabular-nums;letter-spacing:.06em}
+
+/* ---- results ---- */
+.score-block{
+  display:grid;grid-template-columns:auto 1fr;gap:1.4rem 2rem;align-items:end;
+  padding:2.6rem 0 1.8rem;
+}
+.numeral{
+  font-size:clamp(4.5rem,3rem + 10vw,7.5rem);font-weight:600;line-height:.82;
+  letter-spacing:-.05em;color:var(--accent);font-variant-numeric:tabular-nums;
+}
+.numeral small{font-size:.24em;font-weight:500;color:var(--ink-faint);letter-spacing:0;margin-left:.15em}
+.tier-name{font-size:var(--step-2);font-weight:600}
+.tier-line{color:var(--ink-soft);max-width:32rem;padding-top:.4rem}
+
+.bars{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.bar{
+  display:grid;grid-template-columns:1fr auto;gap:.3rem 1rem;align-items:baseline;
+  padding:1rem 0 .95rem;border-bottom:1px solid var(--line);
+}
+.bar .name{font-weight:500}
+.bar .val{font-size:var(--step--1);color:var(--ink-faint);font-variant-numeric:tabular-nums;letter-spacing:.06em}
+.bar .track{grid-column:1/-1;display:block;height:4px;background:var(--line);margin-top:.45rem}
+.bar .fill{display:block;height:100%;width:0;background:var(--ink-soft);transition:width .7s cubic-bezier(.2,.7,.3,1)}
+.bar.weak .fill{background:var(--accent)}
+.bar.weak .name{color:var(--accent-2)}
+.flag{
+  font-family:var(--f-script);font-size:1.3rem;font-style:normal;color:var(--accent-2);
+  display:inline-block;margin-left:.55rem;transform:rotate(-3deg);
+  white-space:nowrap;pointer-events:none;
+}
+
+.moves{padding:2.6rem 0 0;display:flex;flex-direction:column;gap:1.1rem}
+.moves ol{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
+.moves li{
+  display:grid;grid-template-columns:1.6rem 1fr;gap:1rem;
+  padding:.95rem 0;border-bottom:1px solid var(--line);
+}
+.moves li b{font-weight:600;color:var(--accent-2);font-variant-numeric:tabular-nums}
+.next-up{font-size:var(--step--1);color:var(--ink-faint);padding-top:.2rem}
+
+.handoff{
+  background:var(--surface);border-top:2px solid var(--accent);
+  padding:2rem 1.6rem;margin-top:3rem;display:flex;flex-direction:column;gap:1rem;
+}
+.handoff h3{font-size:var(--step-1)}
+.handoff p{color:var(--ink-soft);max-width:34rem}
+.handoff .row{display:flex;flex-wrap:wrap;gap:.9rem;align-items:center;padding-top:.3rem}
+
+/* ---- capture ---- */
+#capture{padding-top:3rem;gap:1.4rem}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem 1.2rem;padding-top:1.4rem}
+.field{display:flex;flex-direction:column;gap:.35rem}
+.field.wide{grid-column:1/-1}
+.field label{
+  font-size:var(--step--1);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);font-weight:500;
+}
+.field input,.field select{
+  background:var(--ground);border:0;border-bottom:1px solid var(--line-strong);
+  padding:.6rem 0;border-radius:0;width:100%;
+  transition:border-color .18s ease;
+}
+.field select{appearance:none;cursor:pointer;background-image:none}
+.field input:focus,.field select:focus{outline:0;border-bottom-color:var(--accent)}
+.field input::placeholder{color:var(--ink-faint)}
+.form-actions{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:1.2rem;padding-top:.8rem}
+.err{color:var(--accent-2);font-size:var(--step--1);grid-column:1/-1}
+@media (max-width:34rem){
+  .form{grid-template-columns:1fr}
+  .score-block{grid-template-columns:1fr;align-items:start;gap:1rem}
+  .bar{grid-template-columns:1fr auto}
+}
+
+/* ---- done ---- */
+#done{padding-top:3rem;gap:1.3rem}
+.summary{
+  background:var(--surface);padding:1.4rem 1.5rem;
+  font-size:var(--step--1);color:var(--ink-soft);
+  white-space:pre-wrap;font-variant-numeric:tabular-nums;
+  overflow-x:auto;border-left:2px solid var(--tan);
+}
+.foot{
+  padding-top:2.6rem;margin-top:3rem;border-top:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;align-items:baseline;
+  font-size:var(--step--1);color:var(--ink-faint);
+}
+.foot .sig{font-family:var(--f-script);font-size:1.2rem;color:var(--ink-soft)}
+[hidden]{display:none!important}
+.fade{animation:fade .35s ease both}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <header class="masthead">
+    <div class="wordmark">Agency818</div>
+    <div class="kind">Content Diagnostic</div>
+  </header>
+
+  <main>
+    <!-- INTRO -->
+    <section id="intro" class="stack">
+      <p class="eyebrow">Twenty questions. Five pillars.</p>
+      <h1>Find out whether your content is <em>posting</em> or <em>performing</em>.</h1>
+      <p class="lede">Most brands do not have a content problem. They have a direction problem that shows up as content. This scorecard grades the five things that decide whether a feed builds a business or just fills a calendar, and tells you which one is costing you the most right now.</p>
+
+      <ul class="pillar-list" id="introList"></ul>
+
+      <div class="intro-meta">
+        <span>6 minutes</span><span>Scored out of 60</span><span>Built for beauty, wellness, and fashion</span>
+      </div>
+
+      <div class="intro-actions">
+        <button class="btn" id="start">Start the scorecard</button>
+        <p class="note">Answer honestly. A flattering score is worth nothing.</p>
+      </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section id="quiz" hidden>
+      <nav class="rail" id="rail" aria-label="Progress"></nav>
+      <div class="pillar-head">
+        <p class="eyebrow" id="qEyebrow">Pillar 01</p>
+        <h2 id="qTitle"></h2>
+        <p class="lede" id="qBlurb"></p>
+      </div>
+      <form class="qs" id="qs"></form>
+      <div class="quiz-nav">
+        <button class="btn-text" id="back" type="button">Back</button>
+        <div style="display:flex;align-items:center;gap:1.2rem">
+          <span class="count" id="count"></span>
+          <button class="btn" id="next" type="button" disabled>Next</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section id="results" hidden>
+      <p class="eyebrow">Your score</p>
+      <div class="score-block">
+        <div class="numeral" id="scoreNum">0<small>/60</small></div>
+        <div>
+          <div class="tier-name" id="tierName"></div>
+          <p class="tier-line" id="tierLine"></p>
+        </div>
+      </div>
+
+      <p class="eyebrow" style="padding-bottom:.7rem">Where the points went</p>
+      <div class="bars" id="bars"></div>
+
+      <div class="moves">
+        <h3 id="movesTitle" style="font-size:var(--step-1)"></h3>
+        <p class="lede" id="movesLede"></p>
+        <ol id="movesList"></ol>
+        <p class="next-up" id="nextUp"></p>
+      </div>
+
+      <div class="handoff">
+        <h3 id="handoffTitle"></h3>
+        <p id="handoffBody"></p>
+        <div class="row">
+          <button class="btn" id="toCapture">Get the full breakdown</button>
+          <button class="btn-text" id="retake" type="button">Start over</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPTURE -->
+    <section id="capture" hidden class="stack">
+      <p class="eyebrow">Step two</p>
+      <h2 style="font-size:var(--step-2);max-width:20ch">Where should the full breakdown go?</h2>
+      <p class="lede">You get a written breakdown of all five pillars scored against your answers, plus the sequence we would run first. The last two questions tell us whether a call would be worth your time.</p>
+      <form class="form" id="leadForm" novalidate>
+        <div class="field"><label for="f-name">First name</label><input id="f-name" name="firstName" autocomplete="given-name" required></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="f-brand">Brand</label><input id="f-brand" name="brand" autocomplete="organization" required></div>
+        <div class="field"><label for="f-handle">Site or handle</label><input id="f-handle" name="handle" placeholder="@yourbrand" required></div>
+        <div class="field">
+          <label for="f-cat">Category</label>
+          <select id="f-cat" name="category" required>
+            <option value="">Select</option>
+            <option>Beauty</option><option>Wellness</option><option>Fashion</option>
+            <option>Med spa or aesthetics</option><option>Hospitality</option><option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-who">Who makes your content now</label>
+          <select id="f-who" name="producedBy" required>
+            <option value="">Select</option>
+            <option>The founder</option><option>An in-house team member</option>
+            <option>A freelancer or creator</option><option>An agency</option><option>No one consistently</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-spend">Monthly content investment</label>
+          <select id="f-spend" name="investment" required>
+            <option value="">Select</option>
+            <option>Under $2k</option><option>$2k to $5k</option><option>$5k to $10k</option><option>$10k and up</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-when">Timeline</label>
+          <select id="f-when" name="timeline" required>
+            <option value="">Select</option>
+            <option>Ready now</option><option>This quarter</option><option>Next quarter</option><option>Just exploring</option>
+          </select>
+        </div>
+        <p class="err" id="formErr" hidden></p>
+        <div class="form-actions">
+          <button class="btn" type="submit" id="submitBtn">Send my breakdown</button>
+          <p class="note">One email with the breakdown. No list, no drip you did not ask for.</p>
+        </div>
+      </form>
+    </section>
+
+    <!-- DONE -->
+    <section id="done" hidden class="stack">
+      <p class="eyebrow" id="doneEyebrow">Done</p>
+      <h2 style="font-size:var(--step-2);max-width:20ch" id="doneTitle"></h2>
+      <p class="lede" id="doneBody"></p>
+      <div class="row" style="display:flex;flex-wrap:wrap;gap:.9rem;align-items:center;padding-top:.6rem">
+        <a class="btn" id="doneCta" href="#">Book a strategy call</a>
+        <button class="btn-quiet" id="copyBtn" type="button">Copy my results</button>
+      </div>
+      <p class="eyebrow" style="padding-top:1.6rem">Your results</p>
+      <div class="summary" id="summary"></div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>AGENCY818</span>
+    <span>Strategy meets storytelling.</span>
+    <span class="sig">from posting to performing</span>
+  </footer>
+</div>
+
+<script>
+/* ------------------------------------------------------------------
+   CONFIG — set these when you host this page on your own domain.
+   endpoint : URL that accepts a POST of the lead JSON (HubSpot forms
+              API, Zapier catch hook, Netlify function, etc.).
+              Leave null and the page still works: the visitor is handed
+              their results and a mailto that reaches you.
+   bookingUrl : your scheduler. Leave null to fall back to email.
+   contactEmail : where results-by-email lands.
+------------------------------------------------------------------- */
+const CONFIG = {
+  endpoint: null,
+  bookingUrl: null,
+  contactEmail: "info@agency-818.com",
+  studio: "AGENCY818"
+};
+
+const PILLARS = [
+  {
+    key:"pov", name:"Point of View", short:"Point of View",
+    blurb:"Whether a stranger can tell what you stand for without reading the bio.",
+    moves:[
+      "Write one sentence naming who the brand is for and what it refuses to do. Every post either proves it or gets cut.",
+      "Pick three recurring themes and retire everything else for sixty days.",
+      "Put a named face on camera weekly, with a defined role rather than a cameo."
+    ],
+    qs:[
+      {t:"Someone lands on your grid with the logo covered. Do they know what you stand for?",
+       o:["They see a nice feed that could belong to a dozen brands.","They get the category, not the position.","Mostly. A few posts are on brand, the rest fill space.","Yes. The angle is obvious within three posts."]},
+      {t:"Where do your content ideas start?",
+       o:["Whatever is trending that week.","Competitor feeds and saved reels.","A loose list of themes we come back to.","A written point of view we deliberately repeat."]},
+      {t:"How often does your founder or a named face appear?",
+       o:["Never. The brand stays anonymous.","Occasionally, usually unplanned.","Regularly, though the on camera quality swings.","Consistently, with a defined role and presence."]},
+      {t:"Could a competitor run your last ten captions under their own name?",
+       o:["Yes, word for word.","Most of them.","Some. The best ones are ours.","No. The voice does not transfer."]}
+    ]
+  },
+  {
+    key:"visual", name:"Visual System", short:"Visual System",
+    blurb:"Whether the work is recognizable at thumbnail size, every time, not on the good weeks.",
+    moves:[
+      "Lock a palette, a lighting setup, and a type treatment. Write them down as rules, not preferences.",
+      "Build a shot list tied to named posts before a camera comes out.",
+      "Shoot a library deep enough for six weeks so you never post from scarcity."
+    ],
+    qs:[
+      {t:"Color and lighting across your last thirty posts:",
+       o:["Set by whoever shot it that day.","Roughly similar, no rule behind it.","A palette exists, applied unevenly.","A defined palette and lighting standard, applied every time."]},
+      {t:"Do you work from a shot list?",
+       o:["We shoot and hope.","A rough idea before we start.","A list for the big shoots only.","Every shoot has a list tied to specific posts."]},
+      {t:"Where does your photo and video actually come from?",
+       o:["Phone, in the moment, no plan.","Occasional shoots with long gaps between.","Quarterly shoots that run thin by week six.","A rolling library, planned so we are never scraping."]},
+      {t:"Your covers, thumbnails, and text treatment:",
+       o:["Default fonts, whatever the app suggests.","Inconsistent, changes with whoever edits.","A template we use most of the time.","A locked cover system that reads as ours at thumbnail size."]}
+    ]
+  },
+  {
+    key:"engine", name:"Production Engine", short:"Production",
+    blurb:"Whether content survives a busy week without you holding it up.",
+    moves:[
+      "Batch. One shoot day and one edit day a month beats daily improvisation.",
+      "Move the calendar three weeks ahead and keep two reactive slots open each week.",
+      "Give content one named owner with a brief, a budget, and a number to hit."
+    ],
+    qs:[
+      {t:"How does a post get made?",
+       o:["Someone remembers it is Tuesday.","One person carries the whole thing in their head.","A shared calendar, filled about a week out.","A documented pipeline anyone on the team can run."]},
+      {t:"How far ahead is content scheduled?",
+       o:["Same day.","Two or three days.","One to two weeks.","Three weeks or more, with room held for reactive posts."]},
+      {t:"When the week gets busy, what happens to content?",
+       o:["It stops.","Quality drops noticeably.","We post less and hold the standard.","Nothing. The batch is already built."]},
+      {t:"Who owns content in your business?",
+       o:["No one. It gets passed around.","The founder, on top of everything else.","A team member, part time, without a brief.","A named owner with a brief, a budget, and a target."]}
+    ]
+  },
+  {
+    key:"path", name:"Conversion Path", short:"Conversion",
+    blurb:"Whether attention has somewhere to go once you have earned it.",
+    moves:[
+      "Build one path from post to offer and stop sending traffic to a homepage.",
+      "Write the offer in one sentence a stranger can price and act on.",
+      "Put a real capture offer behind the bio, and a sequence behind the capture."
+    ],
+    qs:[
+      {t:"What happens after someone likes a post?",
+       o:["Nothing. There is no next step.","They can find the website if they go looking.","A link in bio pointing at a general homepage.","A defined path from that post to a specific offer."]},
+      {t:"Your offer, as a stranger would read it:",
+       o:["Unclear what we sell.","They get the category, not the price or the fit.","Clear offer, buried a few clicks deep.","Clear, specific, and reachable in one step."]},
+      {t:"Inbound DMs and comments with buying intent:",
+       o:["We miss them.","We answer when we can.","We answer, with no set response.","Same day, with a scripted path to a booking."]},
+      {t:"Email or SMS capture from social:",
+       o:["None.","A newsletter signup nobody uses.","A lead offer that converts occasionally.","A working capture offer with a sequence behind it."]}
+    ]
+  },
+  {
+    key:"signal", name:"Signal and Iteration", short:"Signal",
+    blurb:"Whether you are reading the numbers that predict revenue, or the ones that feel good.",
+    moves:[
+      "Replace likes with saves, shares, and booked calls as the numbers you report.",
+      "Run a monthly review with decisions attached, not observations.",
+      "Kill any format that underperforms two months running and move the budget to what compounds."
+    ],
+    qs:[
+      {t:"The number your team watches most:",
+       o:["Likes and follower count.","Reach.","Saves and shares.","Booked calls, leads, and revenue traced to content."]},
+      {t:"Can you name your best post of the last quarter and why it worked?",
+       o:["No.","The post, not the reason.","The post, and a guess at the reason.","The post, the reason, and what we built from it."]},
+      {t:"How often do you review performance formally?",
+       o:["Never.","Whenever something feels off.","Monthly, informally.","On a set cadence, against targets, with decisions attached."]},
+      {t:"When a format underperforms for a month:",
+       o:["We keep posting it.","We notice and carry on.","We adjust the format.","We cut it and reallocate to what is compounding."]}
+    ]
+  }
+];
+
+const TIERS = [
+  {max:24, name:"Posting", line:"Content is running as a chore, not a channel. The gap is not effort, it is direction. Fix the top pillar below and the rest gets easier fast.",
+   movesTitle:"Start here, in this order.",
+   handoffTitle:"You do not need more posts.", handoffBody:"You need a point of view and a system to carry it. The full breakdown scores all five pillars and lays out the first ninety days."},
+  {max:38, name:"Visible", line:"You show up, and people see it. The output is inconsistent enough that it does not compound, so every month starts from zero.",
+   movesTitle:"Your first three moves.",
+   handoffTitle:"You are closer than the score suggests.", handoffBody:"Consistency is a system problem, not a discipline problem. The full breakdown shows which pillar is resetting your progress each month."},
+  {max:50, name:"Compounding", line:"The system works. One pillar is leaking the return, which is why growth feels capped rather than broken.",
+   movesTitle:"The leak, and how to close it.",
+   handoffTitle:"This is the expensive kind of gap.", handoffBody:"Brands at this level are paying for content that almost converts. The full breakdown isolates the leak and quantifies what closing it is worth."},
+  {max:60, name:"Performing", line:"Content is a real channel. The next gain is not fixing, it is scale: more surface area, tighter creative, paid behind what already works.",
+   movesTitle:"Where the next gain is.",
+   handoffTitle:"You have earned the right to scale.", handoffBody:"The full breakdown covers what to amplify, what to hand off, and where the ceiling moves next."}
+];
+
+const $ = s => document.querySelector(s);
+const state = { pillar:0, answers:{}, score:0, byPillar:[] };
+
+/* ---------- intro ---------- */
+$("#introList").innerHTML = PILLARS.map((p,i)=>
+  `<li><span class="idx">${String(i+1).padStart(2,"0")}</span><div><b>${p.name}</b><span>${p.blurb}</span></div></li>`
+).join("");
+
+/* ---------- rail ---------- */
+function drawRail(){
+  $("#rail").innerHTML = PILLARS.map((p,i)=>
+    `<div><span class="tick ${i<=state.pillar?"on":""}"></span><span class="lab ${i===state.pillar?"on":""}">${p.short}</span></div>`
+  ).join("");
+}
+
+/* ---------- quiz ---------- */
+function renderPillar(){
+  const p = PILLARS[state.pillar];
+  drawRail();
+  $("#qEyebrow").textContent = `Pillar ${String(state.pillar+1).padStart(2,"0")} of 05`;
+  $("#qTitle").textContent = p.name;
+  $("#qBlurb").textContent = p.blurb;
+  $("#qs").innerHTML = p.qs.map((q,qi)=>{
+    const id = `${p.key}-${qi}`;
+    return `<fieldset class="q" style="border:0;padding:0;margin:0">
+      <p>${q.t}</p>
+      <div class="opts">${q.o.map((o,oi)=>`
+        <label class="opt"><input type="radio" name="${id}" value="${oi}" ${state.answers[id]==oi?"checked":""}><span class="dot"></span><span>${o}</span></label>
+      `).join("")}</div>
+    </fieldset>`;
+  }).join("");
+  $("#back").style.visibility = state.pillar === 0 ? "hidden" : "visible";
+  $("#next").textContent = state.pillar === PILLARS.length-1 ? "See my score" : "Next";
+  updateGate();
+  window.scrollTo({top:0,behavior:"instant"});
+}
+function updateGate(){
+  const p = PILLARS[state.pillar];
+  const done = p.qs.filter((_,qi)=>state.answers[`${p.key}-${qi}`]!==undefined).length;
+  $("#count").textContent = `${done} of ${p.qs.length}`;
+  $("#next").disabled = done < p.qs.length;
+}
+$("#qs").addEventListener("change", e=>{
+  if(e.target.type!=="radio") return;
+  state.answers[e.target.name] = Number(e.target.value);
+  updateGate();
+});
+$("#start").addEventListener("click", ()=>{
+  $("#intro").hidden = true; $("#quiz").hidden = false; $("#quiz").classList.add("fade");
+  renderPillar();
+});
+$("#back").addEventListener("click", ()=>{ if(state.pillar>0){ state.pillar--; renderPillar(); }});
+$("#next").addEventListener("click", ()=>{
+  if(state.pillar < PILLARS.length-1){ state.pillar++; renderPillar(); }
+  else showResults();
+});
+
+/* ---------- results ---------- */
+function showResults(){
+  state.byPillar = PILLARS.map(p => p.qs.reduce((s,_,qi)=> s + (state.answers[`${p.key}-${qi}`]||0), 0));
+  state.score = state.byPillar.reduce((a,b)=>a+b,0);
+  const tier = TIERS.find(t => state.score <= t.max);
+  state.tier = tier;
+
+  const order = state.byPillar.map((v,i)=>({v,i})).sort((a,b)=>a.v-b.v);
+  const weakest = order[0].i, second = order[1].i;
+  state.weakest = weakest;
+
+  $("#quiz").hidden = true; $("#results").hidden = false; $("#results").classList.add("fade");
+  $("#scoreNum").innerHTML = `${state.score}<small>/60</small>`;
+  $("#tierName").textContent = tier.name;
+  $("#tierLine").textContent = tier.line;
+
+  $("#bars").innerHTML = PILLARS.map((p,i)=>`
+    <div class="bar ${i===weakest?"weak":""}">
+      <span class="name">${p.name}${i===weakest?'<i class="flag">start here</i>':""}</span>
+      <span class="val">${state.byPillar[i]} / 12</span>
+      <span class="track"><span class="fill" data-w="${(state.byPillar[i]/12)*100}"></span></span>
+    </div>`).join("");
+  requestAnimationFrame(()=>{
+    document.querySelectorAll("#bars .fill").forEach(f=>{ f.style.width = f.dataset.w + "%"; });
+  });
+
+  $("#movesTitle").textContent = tier.movesTitle;
+  $("#movesLede").textContent = `Your lowest pillar is ${PILLARS[weakest].name}, at ${state.byPillar[weakest]} out of 12. These three moves are what we would run first.`;
+  $("#movesList").innerHTML = PILLARS[weakest].moves.map((m,i)=>`<li><b>${String(i+1).padStart(2,"0")}</b><span>${m}</span></li>`).join("");
+  $("#nextUp").textContent = `Next after that: ${PILLARS[second].name}, at ${state.byPillar[second]} out of 12.`;
+  $("#handoffTitle").textContent = tier.handoffTitle;
+  $("#handoffBody").textContent = tier.handoffBody;
+}
+$("#toCapture").addEventListener("click", ()=>{
+  $("#results").hidden = true; $("#capture").hidden = false; $("#capture").classList.add("fade");
+  window.scrollTo({top:0,behavior:"instant"});
+  $("#f-name").focus();
+});
+$("#retake").addEventListener("click", ()=>{
+  state.pillar = 0; state.answers = {};
+  $("#results").hidden = true; $("#intro").hidden = false;
+  window.scrollTo({top:0,behavior:"instant"});
+});
+
+/* ---------- summary text ---------- */
+function summaryText(lead){
+  const lines = [
+    `${CONFIG.studio} — Posting to Performing Scorecard`,
+    `Score: ${state.score} of 60  (${state.tier.name})`,
+    ""
+  ];
+  PILLARS.forEach((p,i)=> lines.push(`${p.name.padEnd(22," ")} ${String(state.byPillar[i]).padStart(2," ")} / 12`));
+  lines.push("", `Weakest pillar: ${PILLARS[state.weakest].name}`);
+  if(lead){
+    lines.push("", `${lead.firstName} — ${lead.brand} (${lead.handle})`,
+      `${lead.category} · content by ${lead.producedBy}`,
+      `Investment ${lead.investment} · ${lead.timeline}`);
+  }
+  return lines.join("\n");
+}
+
+/* ---------- capture ---------- */
+function qualified(lead){
+  const spendOk = lead.investment !== "Under $2k";
+  const timeOk = lead.timeline === "Ready now" || lead.timeline === "This quarter";
+  return spendOk && timeOk;
+}
+$("#leadForm").addEventListener("submit", async e=>{
+  e.preventDefault();
+  const form = e.target;
+  const lead = Object.fromEntries(new FormData(form).entries());
+  const missing = Object.entries(lead).filter(([,v])=>!String(v).trim()).length;
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead.email||"");
+  if(missing || !emailOk){
+    const err = $("#formErr");
+    err.hidden = false;
+    err.textContent = missing ? "Fill in every field so the breakdown is actually useful." : "That email address will not reach you. Check it and try again.";
+    return;
+  }
+  $("#formErr").hidden = true;
+  const btn = $("#submitBtn");
+  btn.disabled = true; btn.textContent = "Sending";
+
+  const payload = {
+    ...lead,
+    score: state.score,
+    tier: state.tier.name,
+    pillars: Object.fromEntries(PILLARS.map((p,i)=>[p.key, state.byPillar[i]])),
+    weakestPillar: PILLARS[state.weakest].name,
+    qualified: qualified(lead),
+    submittedAt: new Date().toISOString()
+  };
+  if(CONFIG.endpoint){
+    try{
+      await fetch(CONFIG.endpoint,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
+    }catch(err){ /* the visitor still gets their results below */ }
+  }
+  state.lead = lead;
+  showDone(lead);
+});
+
+function showDone(lead){
+  $("#capture").hidden = true; $("#done").hidden = false; $("#done").classList.add("fade");
+  window.scrollTo({top:0,behavior:"instant"});
+  const isQ = qualified(lead);
+  const sum = summaryText(lead);
+  $("#summary").textContent = sum;
+
+  if(isQ){
+    $("#doneEyebrow").textContent = "Next step";
+    $("#doneTitle").textContent = `${lead.firstName}, this one is worth a conversation.`;
+    $("#doneBody").textContent = `At ${state.score} out of 60, your gap is in ${PILLARS[state.weakest].name}, and you have the budget and the timing to close it this quarter. Book thirty minutes and we will walk your five pillars line by line, whether or not we end up working together.`;
+  }else{
+    $("#doneEyebrow").textContent = "On its way";
+    $("#doneTitle").textContent = `Thanks, ${lead.firstName}. Your breakdown is below.`;
+    $("#doneBody").textContent = `At ${state.score} out of 60, the highest return you can get without spending anything is in ${PILLARS[state.weakest].name}. Work the three moves above for thirty days, then retake this. If you want a second pair of eyes before then, the door is open.`;
+  }
+
+  const cta = $("#doneCta");
+  if(isQ && CONFIG.bookingUrl){
+    cta.href = CONFIG.bookingUrl; cta.textContent = "Book a strategy call"; cta.target = "_blank"; cta.rel = "noopener";
+  }else{
+    const subject = encodeURIComponent(`Scorecard: ${lead.brand} scored ${state.score}/60`);
+    const body = encodeURIComponent(sum + "\n\n");
+    cta.href = `mailto:${CONFIG.contactEmail}?subject=${subject}&body=${body}`;
+    cta.textContent = isQ ? "Email the studio" : "Send this to the studio";
+    cta.removeAttribute("target");
+  }
+  if(!isQ) cta.classList.add("btn-quiet");
+}
+
+$("#copyBtn").addEventListener("click", async ()=>{
+  const btn = $("#copyBtn");
+  try{
+    await navigator.clipboard.writeText($("#summary").textContent);
+    btn.textContent = "Copied";
+  }catch{
+    const r = document.createRange(); r.selectNodeContents($("#summary"));
+    const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+    btn.textContent = "Selected, press copy";
+  }
+  setTimeout(()=>{ btn.textContent = "Copy my results"; }, 2200);
+});
+</script>
+</body>
+</html>
