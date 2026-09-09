@@ -10,24 +10,32 @@ dashes, no influencer fluff, no agency stiffness.
 
 ## 1. Lead routing
 
+AGENCY818 engagements begin at **$4,000 a month**. That number is the filter, so
+the scorecard asks for it directly rather than guessing at fit.
+
 The scorecard returns two independent readings. Use both.
 
 - **Need** comes from the score. Low score means large gap.
-- **Fit** comes from investment band and timeline.
+- **Fit** comes from the investment band and the timeline.
 
 Need without fit is a newsletter subscriber. Fit without need is a hard sell.
 The money is in the middle.
 
 | Segment | Score | Investment | Timeline | Route |
 |---|---|---|---|---|
-| **A. Book now** | 25 to 50 | $5k+ | Ready now or this quarter | Call invitation on screen, personal reply within 24 hours |
-| **B. Warm** | any | $2k to $5k | Ready now or this quarter | Full sequence, call offer at email 3 |
+| **A. Book now** | 25 to 50 | $4k+ | Ready now or this quarter | Call invitation on screen, personal reply within 24 hours |
+| **B. Stretch** | 25 to 50 | $2k to $4k | Ready now or this quarter | Full sequence. They are one step below the price. Make the case for the gap being worth $4k before quoting it |
 | **C. Nurture** | any | any | Next quarter | Full sequence, no call push, re-invite at 60 days |
 | **D. List** | any | Under $2k | Exploring | Email 1 only, then the general list |
 
+Segment B is where the price gets tested. Do not discount into it. A brand at
+$3k a month is usually paying for output, and the scorecard has just shown them
+which pillar that output is failing. That gap is the argument for $4k, and it is
+a better argument than a discount.
+
 The best lead in this system is not the lowest score. It is a brand scoring
-**25 to 50 with real budget**: they already invest in content, it is
-underperforming, and they can tell the difference. A 12 out of 60 with no
+**25 to 50 that already invests $4k or more**: they take content seriously, it
+is underperforming, and they can tell the difference. A 12 out of 60 with no
 budget is a long education, not a client.
 
 Segment A gets a human reply, not an automation. Reference their weakest pillar
@@ -139,6 +147,7 @@ Weeks three and four: [conversion path]
 That is the shape of a Content Intensive. If you want it walked through against
 your actual feed, thirty minutes is here: [booking link].
 
+*Segment B: keep the plan, move the price to the call rather than the email.*
 *Segments C and D: cut the last paragraph. Replace with an invitation to reply.*
 
 ### Email 4 — day 10

@@ -54,7 +54,7 @@ Every submission posts this shape:
 {
   "firstName": "...", "email": "...", "brand": "...", "handle": "...",
   "category": "Beauty", "producedBy": "The founder",
-  "investment": "$5k to $10k", "timeline": "Ready now",
+  "investment": "$4k to $8k", "timeline": "Ready now",
   "score": 42, "tier": "Compounding",
   "pillars": { "pov": 9, "visual": 6, "engine": 10, "path": 7, "signal": 10 },
   "weakestPillar": "Visual System",
@@ -68,8 +68,11 @@ contact properties in the CRM. They are what makes the follow-up specific, and
 specificity is the whole reason this converts. See `campaign.md` for the
 routing rules and the follow-up sequence built on these fields.
 
-`qualified` is the page's own read: investment above the lowest band, and a
-timeline of this quarter or sooner. Treat it as a routing hint, not a verdict.
+`qualified` is the page's own read: AGENCY818 engagements begin at **$4k a
+month**, so a lead qualifies only when the investment band is $4k or above and
+the timeline is this quarter or sooner. Treat it as a routing hint, not a
+verdict. If the price changes, change it in `qualified()` and in the band
+options together, or the two drift apart.
 
 ## Hosting
 

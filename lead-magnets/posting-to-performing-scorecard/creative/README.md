@@ -1,175 +1,163 @@
-# Creative set: pain-point campaign
+# Creative set: persona ads
 
-Seven 4:5 feed posts driving traffic to the Posting to Performing Scorecard.
-Each one names a pain a founder already feels, then hands them a way to measure it.
+Ads driving traffic to the Posting to Performing Scorecard, written against the
+three target personas in the AGENCY818 Foundation Files rather than a generic
+"business owner", and pitched to filter for brands who can meet the **$4k a
+month** starting price.
 
-Generated in Artlist with **Nano Banana 2** (modelGroupId 363, modelId 2251),
-2K, 4:5, through the **A818 ADS** style kit
-(`23c12179-3129-42b5-bcc7-aa46eb54a95b`) so the palette, brand voice, and
-visual guidelines from the AGENCY818 Foundation Files were injected into every
-prompt. 130 credits each, 910 total.
+Generated in Artlist with **Nano Banana 2** (modelGroupId 363, modelId 2252),
+**4K**, 4:5, through the **A818 ADS** style kit
+(`23c12179-3129-42b5-bcc7-aa46eb54a95b`). 200 credits each.
 
-The files live in the Artlist library under this session. They are not checked
-into the repo because the asset hosts are blocked from the environment this was
-generated in. Download them from Artlist and drop them in this folder using the
-filenames below.
+Image files are not committed. The Artlist asset hosts are blocked by this
+environment's egress policy, so pull them from the Artlist library and drop them
+in this folder under the filenames below.
 
-## Before posting: check the type
+## Two things to check before posting
 
-Generated typography is the one thing to proof by eye. Read every headline
-character by character against the "Headline" column. If a word is misspelled or
-a line broke badly, that image is a re-run, not a fix. Everything else in these
-prompts is reliable.
+**The type.** Generated typography is the one thing to proof by eye. Read every
+headline character by character against the "Headline" column. A misspelling
+means a re-run, not a fix.
 
----
-
-## 01 · `01-posting-booking-nothing.png`
-**Pain:** Constant output, nothing to show for it.
-**Headline:** POSTING EVERY DAY. BOOKING NOTHING.
-**Sub:** THAT IS NOT A CONTENT PROBLEM.
-**Image:** Phone face up on cream plaster, empty appointment book, cold coffee, blind slats.
-**Generation:** `01a08748-397a-755e-99db-ed2f2fcac4f2`
-
-> You posted twenty two times last month. How many calls did it book?
->
-> If you cannot answer that, the schedule is not the problem. Nothing in the
-> feed is built to lead anywhere, so attention arrives and then leaves.
->
-> Content that performs has a path. Post, to offer, to booking. Most feeds stop
-> at post and hope.
->
-> Twenty questions will tell you where yours breaks. Link in bio.
+**The typeface.** The style kit's visual guidelines item still says headlines use
+"an editorial high-contrast serif", which is Typography 1, the direction that was
+*not* selected. Every prompt in this set carries a strict sans-serif override to
+counteract it, but the kit itself should be corrected in the Artlist UI. If any
+of these came back with serif headlines, that is the cause.
 
 ---
 
-## 02 · `02-cover-your-logo.png`
-**Pain:** The feed is well made and completely anonymous.
-**Headline:** COVER YOUR LOGO. WOULD ANYONE KNOW IT WAS YOU?
+## 01 · `01-results-premium-feed-not.png` · Vanessa
+**Persona:** Vanessa Reyes, 32, MedSpa owner, Dallas.
+**Pain:** her content does not match the in-office experience.
+**Headline:** YOUR RESULTS ARE PREMIUM. YOUR FEED IS NOT.
+**Sub:** PILLAR 02. VISUAL SYSTEM.
+**Image:** Quiet luxury treatment room. Waffle towel, amber dropper bottle, stone counter, sheer-curtain light.
+**Generation:** `01a08758-f06b-755f-bdce-34297a6424e7`
+
+> Your consult room is immaculate. Your results speak for themselves. Then
+> someone finds you on Instagram and gets a completely different impression of
+> what you charge.
+>
+> That gap is expensive. People decide what a treatment is worth before they
+> ever reach your booking page, and they decide it from the feed.
+>
+> Score your five pillars. Link in bio.
+
+---
+
+## 02 · `02-not-open-a-clinic.png` · Vanessa
+**Pain:** no time to plan and post. The founder is the content engine.
+**Headline:** YOU DID NOT OPEN A CLINIC TO EDIT REELS AT MIDNIGHT.
+**Sub:** CONTENT SHOULD NOT BE THE FOUNDER'S SECOND SHIFT.
+**Image:** Founder at a desk late at night, blazer, laptop glow, single lamp.
+**Generation:** `01a08759-0ad6-7728-9904-f1dcddbc6864`
+
+> You saw patients all day. Now it is eleven at night and you are picking a
+> trending sound.
+>
+> This is the part nobody warns you about. The content becomes a second job that
+> only you can do, so it stops the week you get busy, which is the week it
+> mattered most.
+>
+> That is a system problem, not a discipline problem. Find out which pillar is
+> costing you. Link in bio.
+
+---
+
+## 03 · `03-last-agency-did-not-get-it.png` · Elle
+**Persona:** Elle Nguyen, 27, Gen-Z fashion label founder, NYC.
+**Pain:** burned by an agency that did not understand the brand.
+**Headline:** THE LAST AGENCY DID NOT GET IT.
+**Sub:** THAT IS USUALLY A BRIEF PROBLEM, NOT A TALENT PROBLEM.
+**Image:** Studio corner, chrome garment rack, oversized blazers, 35mm camera, Polaroids face down.
+**Generation:** `01a08759-2321-74c7-a770-1adbc7cacea9`
+
+> They shot it well. It just was not you.
+>
+> That happens when an agency is handed a vibe instead of a brief. Nobody wrote
+> down what the brand argues for, so the work defaults to whatever is trending,
+> and you spend the retainer getting content you would not post.
+>
+> The fix is upstream of the camera. Twenty questions will show you where yours
+> breaks down. Link in bio.
+
+---
+
+## 04 · `04-can-see-cannot-shoot.png` · Elle
+**Pain:** cannot translate the brand's vibe visually.
+**Headline:** YOU CAN SEE THE BRAND. YOU CANNOT SHOOT IT.
+**Image:** Mood board wall. Tear sheets, tan and blush swatches, 35mm negatives, Polaroids, brass pins on cream linen.
+**Generation:** `01a08759-3b2c-7813-ade1-9f841ea3f95c`
+
+> You have the reference folder. You know exactly how it should feel.
+>
+> Then the photos come back and it is not that. Not wrong, just generic. The
+> distance between the board and the shoot is a shot list, a palette, and a
+> lighting standard written down as rules rather than preferences.
+>
+> Pillar two of the scorecard. Link in bio.
+
+---
+
+## 05 · `05-professional-not-you.png` · Maya
+**Persona:** Maya James, 35, wellness founder with a supplement line.
+**Pain:** professional shoots strip her authenticity.
+**Headline:** THE SHOOT LOOKED PROFESSIONAL. IT DID NOT LOOK LIKE YOU.
 **Sub:** PILLAR 01. POINT OF VIEW.
-**Image:** High-contrast black and white, tailored blazer, phone held at chest height.
-**Generation:** `01a08748-4fd0-741a-8d0d-755ef3b083fa`
+**Image:** Morning still life on linen. Matcha in handmade ceramic, bamboo whisk, worn notebook, walking shoes at frame edge.
+**Generation:** `01a08759-69dc-7fb3-8387-791c989d6d00`
 
-> Try it on your last nine posts. Cover the handle and the logo.
+> Polished is not the same as premium.
 >
-> If a competitor could run those posts under their own name and nobody would
-> notice, you do not have a brand presence. You have a content schedule.
+> The moment content starts trying to sound professional, it stops sounding like
+> the person who built the thing. Your audience came for you. They can tell when
+> a shoot has smoothed you out of your own brand.
 >
-> Point of view is the cheapest thing to fix and the first thing we score,
-> because everything downstream inherits it. A shoot cannot save a feed that
-> does not know what it is arguing for.
->
-> Score yours. Link in bio.
+> Point of view is the first thing we score, because everything downstream
+> inherits it. Link in bio.
 
 ---
 
-## 03 · `03-content-stops.png`
-**Pain:** Output collapses in exactly the weeks that matter.
-**Headline:** YOUR CONTENT STOPS THE WEEK YOU GET BUSY.
-**Sub (script):** which is the week it mattered
-**Image:** Empty studio after a shoot, folded backdrop, bare light stand, still disco ball.
-**Generation:** `01a08748-6404-75f1-ad88-1a9b41da690a`
-
-> Launch week. Peak season. The month the collection drops.
->
-> Those are the weeks the feed goes quiet, because those are the weeks nobody
-> has an hour to make something. So the content disappears exactly when the
-> business needs it most.
->
-> That is not a discipline problem. It is a batching problem. Brands that stay
-> consistent through a busy month are not more motivated, they built the month
-> before it arrived.
->
-> Find out how far ahead you actually are. Link in bio.
-
----
-
-## 04 · `04-likes-not-business-model.png`
-**Pain:** Engagement looks healthy, revenue does not move.
-**Headline:** LIKES ARE NOT A BUSINESS MODEL.
-**Sub:** SAVES. SHARES. BOOKED CALLS.
-**Image:** Coupe glass, long hard shadow, dark phone, single pink petal on tan linen.
-**Generation:** `01a08748-79ad-7196-b488-454ac54435d7`
-
-> A like costs nothing, so it tells you nothing.
->
-> The numbers that predict revenue are the ones that cost the viewer something.
-> A save costs intent. A share costs reputation. A booked call costs time.
->
-> If the number your team reports each month is followers, you are measuring
-> the thing that feels best rather than the thing that pays. Change what you
-> report and watch what the content starts doing.
->
-> Pillar five of the scorecard is exactly this. Link in bio.
-
----
-
-## 05 · `05-if-you-stop-posting.png`
-**Pain:** The founder is the entire content engine.
-**Headline:** IF YOU STOP POSTING, IT STOPS.
-**Sub:** THAT IS A SYSTEM PROBLEM, NOT A DISCIPLINE PROBLEM.
-**Image:** Founder at a desk at night, blazer, laptop glow, single lamp, candid.
-**Generation:** `01a08748-a3e2-7a36-86cf-e2d49aac8387`
-
-> You are the strategist, the talent, the editor, and the person posting it at
-> eleven at night.
->
-> That works right up until the week you cannot, and then the whole channel
-> goes dark. Not because anyone stopped caring. Because it was never a system,
-> it was you.
->
-> The fix is not working harder on content. It is giving content an owner, a
-> brief, and a batch that exists before the week starts.
->
-> Twenty questions, six minutes, an honest number at the end. Link in bio.
-
----
-
-## 06 · `06-almost-works.png`
-**Pain:** Real budget going into content that nearly converts.
-**Headline:** THE MOST EXPENSIVE CONTENT IS THE KIND THAT ALMOST WORKS.
-**Image:** Overhead flat lay, contact sheet marked in red grease pencil, loupe, tan linen.
-**Generation:** `01a08748-b9ff-70f2-af01-dd9102257d1b`
-
-> Content that clearly fails is cheap. You stop making it.
->
-> Content that almost works is the expensive kind. It performs well enough to
-> justify the invoice and never well enough to change the month, so you keep
-> paying for it for another year.
->
-> Every brand we score in the middle of the range is in that position. The
-> system is fine. One pillar is leaking, and nobody has isolated which.
->
-> Find your leak. Link in bio.
-
-*This one speaks directly to the highest value segment. Put budget behind it.*
-
----
-
-## 07 · `07-cta-score-out-of-60.png`
-**Purpose:** The clean typographic CTA. Use as a carousel end card, a story
-frame, and the ad creative.
+## 06 · `06-cta-engagements-begin-at-4k.png` · CTA
+**Purpose:** carousel end card, story frame, and the ad creative. States the
+price, which is the filter.
 **Headline:** SCORE YOUR CONTENT. OUT OF 60.
 **Detail:** 20 QUESTIONS. 5 PILLARS. 6 MINUTES.
+**Qualifier:** ENGAGEMENTS BEGIN AT $4K A MONTH.
 **Script:** from posting to performing
 **Image:** Cream plaster field, disco ball bleeding into the lower right, merlot rule.
-**Generation:** `01a08748-d5f3-78e9-b45d-8b08f2612df5`
+**Generation:** `01a0875f-0365-72a4-b78d-e410217e3f21`
 
 > Five pillars decide whether a feed builds a business or fills a calendar.
 >
 > Point of view. Visual system. Production engine. Conversion path. Signal.
 >
-> The scorecard grades all five, names the one costing you the most right now,
-> and gives you the three moves we would run first. It takes six minutes and it
-> does not flatter you.
+> The scorecard grades all five, names the one costing you the most, and gives
+> you the three moves we would run first. Six minutes. It does not flatter you.
+>
+> We start at four thousand a month, and the scorecard will tell you whether
+> that is worth it before you ever talk to us.
 >
 > Link in bio.
 
+*An earlier version of this card read "BUILT FOR BRANDS ALREADY INVESTING 4K A
+MONTH IN CONTENT" (`01a08759-8223-796a-b3c4-d37a3e90016e`). Superseded: stating
+the price is the cleaner filter, and it does not exclude a brand at $3k who
+should be at $4k.*
+
 ---
 
-## Posting order
+## Posting order and spend
 
-Run 02, 04, and 05 first. They are the widest pains and the strongest hooks for
-a cold audience. Follow with 01 and 03. Save 06 for a retargeting audience and
-put spend behind it, because it speaks to brands already paying someone.
+Lead with **03** and **05**. "The last agency did not get it" and "it did not
+look like you" are the sharpest hooks in the set because they name a specific
+grievance rather than a general shortfall.
 
-07 closes every carousel and runs as the standing story highlight.
+**01** and **02** are the MedSpa pair. Run them together to that audience.
+
+**04** is the softest and works best in a carousel behind 03.
+
+**06** closes every carousel and runs as the standing story highlight. Put paid
+behind it, because it is the only one carrying the price, and the price is what
+keeps unqualified leads out of the calendar.
