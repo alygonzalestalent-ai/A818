@@ -1,0 +1,17 @@
+node_modules/
+.models/
+public/footage/
+public/assets/
+public/sfx/*
+!public/sfx/.gitkeep
+# footage and renders stay on your machine, not in git
+raw-footage/*
+references/*
+exports/*
+projects/*
+brand/study/
+!raw-footage/.gitkeep
+!references/.gitkeep
+!exports/.gitkeep
+!projects/.gitkeep
+*.tmp
