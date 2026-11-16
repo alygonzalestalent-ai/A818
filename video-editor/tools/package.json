@@ -1,0 +1,10 @@
+{
+  "name": "a818-video-tools",
+  "private": true,
+  "description": "Support tools installed by `python3 editor.py setup`. The CapCut edit itself does not render with these.",
+  "dependencies": {
+    "@remotion/cli": "4.0.543",
+    "hyperframes": "^0.9.55",
+    "remotion": "4.0.543"
+  }
+}

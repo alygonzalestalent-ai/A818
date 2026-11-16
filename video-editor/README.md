@@ -1,68 +1,80 @@
-# AI video editor
+# AI video editor (CapCut)
 
-Claude edits your Reels and TikToks: it learns your style, adds titles, captions and animations to a rough cut, shows you a storyboard to approve beat by beat, redrafts from your notes, and exports.
+Claude plans your edit and writes it as a real CapCut project: your clip, cuts, punch-ins, titles, cards and sounds, all made with CapCut's own fonts, text animations and sound effects. You watch it in CapCut, approve it beat by beat in the storyboard dashboard, and export from CapCut.
 
-## The five steps
+Run it in Claude Code on the Mac that has CapCut desktop.
 
-| Step | What you do | What you say to Claude |
+## Your folders
+
+Claude works from `~/Desktop/claude to edit`:
+
+| Folder | Use |
+| --- | --- |
+| `01 to edit` | your rough cuts |
+| `02 edited` | where you save the CapCut exports |
+| `03 inspo` | videos Claude studies for your style |
+
+## What you say
+
+| Step | Say to Claude | What happens |
 | --- | --- | --- |
-| 1. Folders | Already here: `raw-footage/`, `references/`, `exports/` | |
-| 2. Tools | Open this repo in Claude Code | "Be my video editor. Install these tools, test each one, and tell me when you're ready." |
-| 3. Style | Put 3-5 reels in `references/` | "Study these and pull the fonts, colors, captions and pacing into one brand sheet." |
-| 4. Rough cut | Drop your clip in `raw-footage/` | "Add titles, captions and animations, and show me a storyboard before you export." |
-| 5. Approve | Open the dashboard, approve each beat or write a change request, press **Send notes to Claude** | Nothing. The next draft appears in the dashboard. When every beat is approved, press **Approve & export final**. |
+| 1 | "Be my video editor. Install these tools, test each one, and tell me when you're ready." | Installs and tests everything |
+| 2 | "Review my inspo and make the brand sheet." | Studies `03 inspo`, writes your brand sheet with CapCut fonts and animations |
+| 3 | "Learn my sound kit." | Reads the CapCut sound effects from a CapCut project you name "Sound Kit" |
+| 4 | "Add titles, captions and animations, and show me a storyboard." | Writes a draft into CapCut and opens the dashboard |
+| 5 | Approve beats or write change requests, then press **Send notes to Claude** | The next draft appears in CapCut |
+| 6 | Press **Approve & finish in CapCut** | The final project appears in CapCut; you add Auto captions and export |
 
-The finished video lands in `exports/`.
+## What you do in CapCut
+
+- Press **Captions > Auto captions** once on the "(captions)" project so Claude knows what you say and when.
+- Play each draft.
+- On the final: pick your caption style, drag in any sounds the dashboard lists, and export.
 
 ## Tools
 
-| Tool | What it does |
+The edit itself uses only CapCut. These are installed as backup and for looking at footage:
+
+| Tool | Used for |
 | --- | --- |
-| [Remotion](https://github.com/remotion-dev/remotion) | titles, captions and animation |
-| [FFmpeg](https://github.com/FFmpeg/FFmpeg) | cutting, audio, loudness |
-| Whisper (via faster-whisper) | word-timed transcript for captions |
-| [yt-dlp](https://github.com/yt-dlp/yt-dlp) | pulls your own reels into `references/` |
-| [HyperFrames](https://github.com/heygen-com/hyperframes) | optional, green screen cutouts only; not wired into the edit yet |
+| [pycapcut](https://github.com/GuanYixuan/pycapcut) | writes the CapCut project files |
+| [FFmpeg](https://github.com/FFmpeg/FFmpeg) | pictures of your clips and inspo for Claude to look at |
+| Whisper | backup: lets Claude hear a clip if CapCut's captions cannot be read |
+| [yt-dlp](https://github.com/yt-dlp/yt-dlp) | pulls your own Reels into `03 inspo` |
+| [Remotion](https://github.com/remotion-dev/remotion), [HyperFrames](https://github.com/heygen-com/hyperframes) | installed as backup, not used by the CapCut edit |
 
-Needs Node 18+, Python 3.9+ and FFmpeg. `npm run setup` installs the rest and tests each tool.
-Remotion is free for individuals and companies of up to three people; larger teams need a Remotion licence.
-
-## Commands (Claude runs these for you)
+## Commands (Claude runs these)
 
 ```bash
-npm run setup
+python3 editor.py setup
 ```
 
 ```bash
-npm run pull -- <reel url>
+python3 editor.py inspo
 ```
 
 ```bash
-npm run study
+python3 editor.py kit "Sound Kit"
 ```
 
 ```bash
-npm run new -- "raw-footage/my-clip.mov"
+python3 editor.py start "my clip"
 ```
 
 ```bash
-npm run draft
+python3 editor.py captions
 ```
 
 ```bash
-npm run dashboard
+python3 editor.py build
 ```
 
 ```bash
-npm run export
+python3 editor.py dashboard
 ```
 
-The dashboard runs at http://localhost:4818. Footage, drafts and exports stay on your machine and are not committed to git.
+```bash
+python3 editor.py final
+```
 
-## How it fits together
-
-- `brand/brand.json` is the brand sheet. Every render reads it.
-- `projects/<name>/storyboard.json` is the plan for one video: beats, on-screen graphics, zooms, cuts.
-- `src/` is the Remotion renderer. `src/treatments/index.tsx` holds the graphics (hook title, step header, card, checklist, prompt card, pill, big text, handwriting, sticker, iMessage, comment prompt, image).
-- `dashboard/` and `scripts/dashboard.mjs` are the storyboard dashboard. Reviews are saved to `projects/<name>/review/draft-N.json`.
-- `.claude/skills/video-editor/SKILL.md` (repo root) tells Claude how to run all of it.
+The dashboard runs at http://localhost:4818.

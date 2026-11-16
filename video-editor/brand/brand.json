@@ -1,6 +1,12 @@
 {
   "name": "Aly Gonzales / AGENCY818",
-  "summary": "Pink, cream and serif. Single-take talking heads, no music, a different graphic treatment on every beat.",
+  "summary": "Pink, cream and serif. Single-take talking heads, no music, a different graphic treatment on every beat. Everything on screen is made with CapCut's own fonts, text animations and sound effects.",
+  "folders": {
+    "workspace": "~/Desktop/claude to edit",
+    "toEdit": "01 to edit",
+    "edited": "02 edited",
+    "inspo": "03 inspo"
+  },
   "colors": {
     "pink": "#F59CC5",
     "pinkBox": "#F7A9D6",
@@ -10,27 +16,47 @@
     "white": "#FFFFFF"
   },
   "fonts": {
-    "serif": "Instrument Serif",
-    "sans": "Inter",
-    "hand": "Caveat",
-    "script": "Dancing Script",
-    "round": "Fredoka",
-    "condensed": "Anton",
-    "italic": "Playfair Display"
+    "serif": "Prata-Regular",
+    "italic": "PlayfairDisplay-Italic",
+    "sans": "Poppins-Bold",
+    "hand": "ReenieBeanie-Regular",
+    "script": "Italianno",
+    "round": "FredokaOne-Regular",
+    "condensed": "Anton"
   },
   "captions": {
-    "style": "phrase",
+    "how": "CapCut auto captions (Captions > Auto captions)",
+    "template": "3-4 words per line, serif, white, pink highlight on the spoken word",
     "font": "serif",
-    "size": 92,
+    "size": 60,
     "y": 1600,
-    "wordsPerPhrase": 4,
-    "highlight": "box",
-    "highlightColor": "#F7A9D6",
-    "color": "#FFFFFF"
+    "color": "#FFFFFF",
+    "carry": true
+  },
+  "animations": {
+    "titleIn": "zoomIn",
+    "cardIn": "popUp",
+    "rowIn": "bounceUp",
+    "typedIn": "typewriter",
+    "handwritingIn": "letterByLetter",
+    "out": "fadeOut"
+  },
+  "sounds": {
+    "note": "Names of CapCut sound effects, exactly as they appear in your sound kit. One per visible event, under the voice.",
+    "pop": "",
+    "tick": "",
+    "typing": "",
+    "whoosh": "",
+    "sparkle": "",
+    "shutter": ""
   },
   "layout": {
     "topY": 150,
     "chestY": 1250
+  },
+  "capcut": {
+    "sizePerPx": 0.15,
+    "projectsDir": ""
   },
   "pacing": {
     "pauseSeconds": { "midPhrase": 0.07, "comma": 0.16, "sentenceEnd": 0.26, "punchline": 0.45 },
@@ -39,18 +65,19 @@
     "music": "none on talking heads"
   },
   "rules": [
+    "CapCut only: every font, text animation and sound comes from CapCut's own library.",
     "Vary the mix: every beat gets a different treatment, never the same graphic type twice in a row.",
     "Retakes: when the same idea is said twice, keep only the last take.",
     "On-screen hook text never repeats a line said later in the video.",
     "If the clip was trimmed by hand, the cuts are final. Only add graphics, sound and captions.",
     "Graphics appear on a spoken word, never in silence. No title-only pop-ins.",
-    "Cards are sized to their content. Text stays off the face: cards above the head, big text on the chest, captions low.",
+    "Text stays off the face: cards above the head, big text on the chest, captions low.",
     "No em dashes in on-screen text. Use the speaker's own words.",
-    "Real recorded sound effects only, one per visible event, under the voice.",
-    "Export at the recorded resolution and frame rate."
+    "One sound per visible event, under the voice. No music bed on talking heads.",
+    "Export from CapCut at the recorded resolution and frame rate."
   ],
   "sources": [
-    "Seeded from the approved talking-head edits (founder_mom_day1_2026_11_03_v2, founder_mom_tiktok_2026_11_03_v11).",
-    "Re-run the study step with 3-5 reels in references/ to refresh this sheet."
+    "Seeded from the approved talking-head edits. Fonts are the closest CapCut matches to Instrument Serif, Inter, Caveat, Dancing Script, Fredoka and Anton.",
+    "Run the inspo review on Desktop/claude to edit/03 inspo to refresh this sheet."
   ]
 }

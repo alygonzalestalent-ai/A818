@@ -1,61 +1,58 @@
 ---
 name: video-editor
-description: Be the user's AI video editor for Reels and TikToks. Use when they say "be my video editor", "install the tools", "study these reels", "make a brand sheet", drop a rough cut into raw-footage, or ask to "add titles, captions and animations", "show me a storyboard", "make the next draft", or "export". Runs the video-editor/ project, which holds the brand sheet, the Remotion renderer and the storyboard dashboard.
+description: Be the user's AI video editor for Reels and TikToks, working only through CapCut. Use when they say "be my video editor", "install the tools", "review my inspo", "make a brand sheet", "learn my sound kit", put a rough cut in "01 to edit", or ask to "add titles, captions and animations", "show me a storyboard", "make the next draft", or "finish it". Runs video-editor/editor.py, which writes real CapCut desktop projects using CapCut's own fonts, text animations and sounds, plus the storyboard dashboard.
 ---
 
-# AI video editor
+# AI video editor (CapCut)
 
-Everything lives in `video-editor/`. Run all commands from that folder.
+Run everything from `video-editor/` on the computer that has CapCut desktop (the user's Mac). The finished video is always made and exported in CapCut. Every font, text animation and sound on screen must be CapCut's own. Remotion, HyperFrames, FFmpeg, Whisper and yt-dlp are installed as backup tools only: never use them to draw text, add sound, or render the video.
 
-| Folder | What it holds |
+## Folders
+The user's working folder is `~/Desktop/claude to edit` (set in `brand/brand.json` under `folders`):
+
+| Folder | Use |
 | --- | --- |
-| `raw-footage/` | rough cuts the user drops in |
-| `references/` | 3-5 reels to learn the style from |
-| `exports/` | finished videos, named `YYYY-MM-DD title.mp4` |
-| `brand/brand.json` | the brand sheet: fonts, colors, captions, pacing, rules |
-| `projects/<name>/` | one edit: `source.mp4`, `transcript.json`, `sheets/`, `storyboard.json`, `drafts/`, `review/`, `assets/` |
+| `01 to edit/` | rough cuts, one subfolder per video |
+| `02 edited/AGENCY818` and `02 edited/MOM`, each with `POSTED` and `NOT POSTED YET` | where the user saves CapCut exports. Finals only. |
+| `03 inspo/` | inspiration videos to learn the style from |
 
-The five steps below match what the user says. Do the step they ask for; do not run ahead.
+In the repo: `brand/brand.json` (brand sheet), `brand/capcut-kit.json` (sounds and fonts learned from the user's CapCut), `projects/<name>/` (storyboard, transcript, reviews).
 
 ## 1. "Be my video editor. Install these tools, test each one, and tell me when you're ready."
-Run `npm run setup`. It installs and tests FFmpeg, Remotion, Whisper, yt-dlp and the renderer and prints a ready table. Report that table. HyperFrames is optional (green screen cutouts only).
+`python3 editor.py setup`. Report the table as printed. "Project writer" and "Test project" must be ready. CapCut, the folders and the sound kit show as optional when missing; say plainly which are missing.
 
-## 2. "Study these and pull the fonts, colors, captions and pacing into one brand sheet."
-1. Reels must be in `references/`. To pull the user's own posts: `npm run pull -- <url> <url>`.
-2. `npm run study` writes `brand/study/<reel>/` (hook.jpg, body-NN.jpg, palette, transcript) and `brand/study/summary.json` (cuts per minute, words per minute, palette).
-3. Look at every `hook.jpg` and `body-*.jpg`. Note fonts (serif, sans, script, handwriting), text colors, caption style (words at a time, position, highlight), where titles and cards sit, how often graphics change, and cut rhythm.
-4. Write it into `brand/brand.json`, keeping the same keys. Fonts must be ones bundled in `src/fonts.ts`; to add one, `npm i @fontsource/<name>` and add it to that file and to `fonts` in the brand sheet.
-5. Show the user the sheet: `npm run dashboard`, Brand sheet tab.
+## 2. "Review my inspo and make the brand sheet."
+1. `python3 editor.py inspo` makes contact sheets for every video in `03 inspo` under `brand/study/<video>/` (`hook.jpg`, `body-NN.jpg`). To add the user's own posts first: `python3 editor.py pull <url>`.
+2. Look at every sheet. Note text style (serif, bold sans, handwriting, script), colors, caption style, where titles and cards sit, how often graphics change, and which moments would carry a sound.
+3. Write it into `brand/brand.json`, keeping the keys. `fonts` must be CapCut font names from `python3 editor.py list fonts`; pick the closest CapCut match and say which inspo it came from in `sources`. `animations` must be names from `python3 editor.py list animations`.
+4. Show the sheet: `python3 editor.py dashboard`, Brand sheet tab.
 
-## 3. "Add titles, captions and animations, and show me a storyboard before you export."
-1. `npm run new -- "raw-footage/<file>" [name]` makes the project: working copy, word-timed transcript, contact sheets, starter storyboard.
-2. Read `transcript.json` and look at `sheets/*.jpg`. Find the beats: hook, each point or step, the call to action. Mark retakes (same idea said twice: keep the last).
-3. Rewrite `projects/<name>/storyboard.json` (format below). One beat per idea, usually 6-14 beats. Give every beat a different treatment and follow every rule in `brand.json`.
-4. Check the busiest moments first: `node scripts/render.mjs still <name> <seconds>` then look at the image.
-5. `npm run draft -- <name>` renders the draft and the beat stills.
-6. Start the dashboard if it is not running (`npm run dashboard`, port 4818, run in the background) and give the user the link.
-7. Run `npm run wait -- <name>` in the background. It returns as soon as the user sends their review.
+## 3. "Learn my sound kit."
+CapCut library sounds can only be placed if they are already on the computer. Ask the user to make a CapCut project called "Sound Kit", drag in the CapCut sound effects they like, and close it. Then `python3 editor.py kit "Sound Kit"`. Use the printed names exactly in `sfx`. The same command also learns fonts used in that project. Any sound not in the kit is listed for the user to drag in by hand.
 
-## 4. Next draft (the review came back)
-`npm run wait` prints each change request. For each one:
-1. Change that beat in `storyboard.json`.
-2. Set the beat's `lastNote` to the user's note and `whatChanged` to one plain sentence on what is different.
-3. Clear `lastNote` and `whatChanged` on beats you did not touch this round. Approved beats you did not touch stay approved.
-4. `npm run draft -- <name>` (the draft number goes up by itself), then `npm run wait -- <name>` again. The dashboard switches to the new draft on its own.
+## 4. "Add titles, captions and animations, and show me a storyboard."
+1. `python3 editor.py start "<clip name>"` (no name lists the clips in `01 to edit`). It writes a CapCut project called "<title> (captions)" holding just the clip.
+2. Ask the user to open that project in CapCut, press Captions > Auto captions, and close it. Then `python3 editor.py captions`. This reads CapCut's own captions so you know what is said and when.
+   - If it reports the project cannot be read, ask for an `.srt` exported next to the clip, or, as a last resort, run `python3 editor.py captions --listen` (Whisper, for planning only; nothing from it goes on screen and the user then presses Auto captions on the final).
+3. Write the beats into `projects/<name>/storyboard.json` (format below). One beat per idea, usually 6-14. Give every beat a different treatment and follow every rule in `brand.json`.
+4. `python3 editor.py build` writes "<title> draft N" into CapCut.
+5. Start the dashboard in the background if it is not running (`python3 editor.py dashboard`, port 4818) and give the user the link. Tell them to play the draft in CapCut, then review in the dashboard.
+6. Run `python3 editor.py wait` in the background. It returns when the user sends their review.
 
-Only change beats that have a note. Never restyle an approved beat.
+## 5. Next draft
+`wait` prints each change request. For each one: change that beat, set its `lastNote` to the user's words and `whatChanged` to one plain sentence. Clear `lastNote` and `whatChanged` on beats you did not touch. Then `python3 editor.py build` (the draft number goes up by itself; each draft is a new CapCut project) and `wait` again. Never restyle an approved beat.
 
-## 5. Export
-When the review says EXPORT REQUESTED (every beat approved): `npm run export -- <name>`. It renders at the recorded resolution and frame rate, evens the loudness to -14 LUFS and writes `exports/YYYY-MM-DD title.mp4`. It refuses if any beat is not approved; only use `--force` when the user says to export anyway. After exporting, transcribe the export and compare a few word times with the storyboard to confirm sound and picture are in sync.
+## 6. Finish
+When the review says FINISH REQUESTED: `python3 editor.py final`. It writes the approved edit as "<title>" in CapCut and refuses if any beat is unapproved (`--force` only when the user says so). Then tell the user the three things left for them in CapCut: Auto captions (only if the build said none were carried), any sounds listed to drag in, and Export at the recorded resolution and frame rate into `02 edited/<BRAND>/NOT POSTED YET`. Suggest the file name `YYYY-MM-DD topic.mp4`.
 
 ## storyboard.json
-All times are seconds on the rough cut's own clock (the same clock as `transcript.json`), even when you cut. The renderer works out the final timeline.
+All times are seconds on the rough cut's own clock (same as `transcript.json`), even when you cut.
 
 ```json
 {
   "title": "Day 1 starting from zero",
   "cuts": [{ "from": 0.4, "to": 12.1 }, { "from": 13.0, "to": 41.5 }],
-  "captions": { "emphasis": ["zero"], "hide": [[0, 3.2]] },
+  "captions": { "hide": [[0, 3.2]] },
   "beats": [
     {
       "id": "b1", "label": "Hook", "from": 0.4, "to": 3.2,
@@ -64,38 +61,41 @@ All times are seconds on the rough cut's own clock (the same clock as `transcrip
       "animation": "how it moves, one line",
       "zoom": 1,
       "treatments": [{ "type": "hook", "kicker": "day 1", "title": "zero followers", "sub": "starting now" }],
-      "sfx": [{ "name": "pop-1.mp3", "at": 0.4 }],
+      "sfx": [{ "name": "Pop", "at": 0.4 }],
       "lastNote": "", "whatChanged": ""
     }
   ]
 }
 ```
 
-- `cuts` is the list of ranges to KEEP. Leave it as the whole clip when the user trimmed it themselves. Never cut inside a phrase.
-- `captions.hide` turns captions off for ranges where a graphic says the same words. Captions otherwise follow the brand sheet; override per video with `style` (`phrase` or `word`), `size`, `y`.
-- `zoom` is a punch-in for the whole beat (brand `pacing.punchIn`). Change it at sentence ends only.
-- `sfx` files go in `public/sfx/`. Real recorded sounds only. None ship with the project.
+- `cuts` lists the ranges to KEEP. Leave it as the whole clip when the user trimmed it themselves. Never cut inside a phrase.
+- `zoom` is a punch-in for the whole beat (`pacing.punchIn` in the brand sheet). Change it at sentence ends only.
+- `sfx.name` is a sound from the kit (`python3 editor.py list sounds`).
+- `captions.hide` drops carried captions for ranges where a graphic says the same words.
 - Do not edit `project`, `source` or `draft`.
 
 ### Treatments
-Each has `type`, optional `at` and `until` (default: the beat's start and end), and `y` (pixels from the top on a 1080x1920 frame) or `position` (`top`, `chest`, `center`). Rows and messages take their own `at` so they appear on the word.
+Each has `type`, optional `at` and `until` (default: the beat), `y` (pixels from the top of a 1080x1920 frame) or `position` (`top`, `chest`). Rows and messages take their own `at` so they land on the word. Any treatment can override `intro` and `outro` with a CapCut animation name, and `font` with a brand font key.
 
-| type | fields | use for |
+| type | fields | becomes in CapCut |
 | --- | --- | --- |
-| `hook` | `kicker`, `title`, `sub`, `size`, `font` | stacked title lockup on the first frame |
-| `header` | `step`, `text` | "STEP 1 SET UP YOUR FOLDERS" strip above the head |
-| `card` | `title`, `rows[{text, note, at}]` | white card that grows as items are said |
-| `checklist` | `title`, `items[{text, at}]` | rows that tick pink as each is said |
-| `prompt` | `label`, `text`, `highlight[]` | "PROMPT · COPY THIS" card |
-| `pill` | `text` | typed label with a cursor |
-| `bigText` | `lines[{text, at, color}]`, `font`, `size` | chest-height statement |
-| `hand` | `text`, `font` (`hand` or `script`), `tilt` | pink handwriting that writes on |
-| `sticker` | `text`, `bg`, `tilt` | tilted colour box |
-| `imessage` | `messages[{from: "me" or "them", text, at}]` | chat bubbles |
-| `comment` | `word`, `sub` | closing "COMMENT WORD" with a typed comment bar |
-| `image` | `src` (file in the project's `assets/`), `position` (`top` or `full`), `width` | screenshots and cutaways |
+| `hook` | `kicker`, `title`, `sub`, `size` | three stacked text layers |
+| `header` | `step`, `text` | one text layer, step word in the accent color |
+| `card` | `title`, `rows[{text, note, at}]` | text layers with a paper background, one per row |
+| `checklist` | `title`, `items[{text, at}]` | same, each row starting with a pink tick |
+| `prompt` | `label`, `text` | label plus wrapped text on a paper background |
+| `pill` | `text` | rounded label with the Typewriter animation |
+| `bigText` | `lines[{text, at, color}]`, `size` | large chest-height lines |
+| `hand` | `text`, `tilt` | handwriting font, Letter by letter animation |
+| `sticker` | `text`, `bg`, `tilt` | tilted text on a color background |
+| `imessage` | `messages[{from: "me" or "them", text, at}]` | blue and grey bubbles |
+| `comment` | `word`, `sub` | COMMENT "WORD" plus a typed comment pill |
+| `image` | `src` (in the project's `assets/`), `position` (`top` or `full`), `width` | picture layer with Fade in |
 
-A new kind of graphic is a new component in `src/treatments/index.tsx` plus a line in `onScreenText` in `shared/time.js`.
+## Known limits (say these plainly when relevant)
+- Text sizes and positions are estimates until checked in CapCut. If text is too big or small, adjust `capcut.sizePerPx` in the brand sheet and rebuild.
+- CapCut's project format is undocumented. If a project does not appear or will not open, report exactly what CapCut shows; do not keep rebuilding blindly.
+- Animated word-by-word caption highlights come from CapCut's caption templates, which the user picks in CapCut.
 
 ## Checks before showing any draft
 - Every graphic starts on a spoken word, not in silence.
